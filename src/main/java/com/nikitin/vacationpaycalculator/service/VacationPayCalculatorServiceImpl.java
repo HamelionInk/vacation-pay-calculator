@@ -43,9 +43,9 @@ public class VacationPayCalculatorServiceImpl implements VacationPayCalculatorSe
         Calendar instance = Calendar.getInstance();
         for (int i = 0; i <= vacationDays; i++) {
             instance.setTime(formatDate.parse(vacationDate.get()));
-            for (String date : holidays.keySet()) {
-                Date date1 = formatDate.parse(date);
-                if (date1.equals(instance.getTime())) {
+            for (String stringDate : holidays.keySet()) {
+                Date date = formatDate.parse(stringDate);
+                if (date.equals(instance.getTime())) {
                     vacationDays = vacationDays - 1;
                 }
             }
